@@ -21,5 +21,5 @@ curl -F "file=@$FILEPATH" \
      "$WEBHOOK_URL"
 
 # === OPTIONAL: Notify user locally ===
-notify-send "📤 Screenshot uploaded to Discord" "$FILENAME"
+#notify-send "📤 Screenshot uploaded to Discord" "$FILENAME"
 
