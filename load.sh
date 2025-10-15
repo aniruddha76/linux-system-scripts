@@ -1,7 +1,7 @@
 #!/bin/bash
 # === CONFIG ===
 WEBHOOK_URL="https://discord.com/api/webhooks/1427901803101556868/ymRWB-jseMHoouNJDkP77LNwqxiMiB-XDNesM5vqEbCygPRgW3omySVLmU5_YS_xIl36"
-LOAD_THRESHOLD=0.0     # System load average threshold
+LOAD_THRESHOLD=8.0     # System load average threshold
 CHECK_INTERVAL=20       # Seconds between checks
 HOSTNAME=$(uname -n)
 
