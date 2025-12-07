@@ -1,8 +1,8 @@
 #!/bin/bash
 # === CONFIG ===
 WEBHOOK_URL="https://discord.com/api/webhooks/1427901803101556868/ymRWB-jseMHoouNJDkP77LNwqxiMiB-XDNesM5vqEbCygPRgW3omySVLmU5_YS_xIl36"
-LOAD_THRESHOLD=6     # System load average threshold
-CHECK_INTERVAL=10       # Seconds between checks
+LOAD_THRESHOLD=7.0     # System load average threshold
+CHECK_INTERVAL=15       # Seconds between checks
 HOSTNAME=$(uname -n)
 echo "Load script is running..."
 
@@ -25,22 +25,22 @@ while true; do
     UPTIME=$(uptime -p | sed 's/up //')
 
     # === Top 5 CPU Processes ===
-    TOP_PROCESSES=$(ps -eo pid,comm,%cpu,%mem --sort=-%cpu --no-headers | grep -v "ps" | head -n 8)
+    TOP_PROCESSES=$(ps -eo pid,comm,%cpu,%mem --sort=-%cpu --no-headers | grep -v "ps" | head -n 5)
 
     # === Build Discord Message ===
     MESSAGE=$(cat <<EOF
 ⚠️ **High System Load Detected!**
 
-**Host:** \`$HOSTNAME\`
-**Date & Time:** $DATE_TIME
-**Uptime:** $UPTIME
+📅 **Date & Time:** $DATE_TIME
+🖥️ **Host:** \`$HOSTNAME\`
+⚙️ **Uptime:** $UPTIME
 
 **System Health**
-**CPU Usage:** ${CPU_INT}%  
-**Memory Usage:** ${MEM_PERC}%    
-**Load Average:** ${LOAD_AVG} *(Threshold: ${LOAD_THRESHOLD})*
+> 🔥 **CPU Usage:** ${CPU_INT}%  
+> 🧠 **Memory Usage:** ${MEM_PERC}%    
+> 📈 **Load Average:** ${LOAD_AVG} *(Threshold: ${LOAD_THRESHOLD})*
 
-**Top 8 CPU Processes**
+**Top 5 CPU Processes**
 \`\`\`
   PID   COMMAND         %CPU %MEM
 $TOP_PROCESSES
