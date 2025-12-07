@@ -1,13 +1,14 @@
 #!/bin/bash
 # === CONFIG ===
 WEBHOOK_URL="https://discord.com/api/webhooks/1427901803101556868/ymRWB-jseMHoouNJDkP77LNwqxiMiB-XDNesM5vqEbCygPRgW3omySVLmU5_YS_xIl36"
-LOAD_THRESHOLD=8.0     # System load average threshold
-CHECK_INTERVAL=20       # Seconds between checks
+LOAD_THRESHOLD=7.0     # System load average threshold
+CHECK_INTERVAL=15       # Seconds between checks
 HOSTNAME=$(uname -n)
+echo "Load script is running..."
 
 # === MONITOR LOOP ===
 while true; do
-  DATE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+  DATE_TIME=$(date)
   LOAD_AVG=$(awk '{print $1}' /proc/loadavg)
 
   # Trigger only when load average exceeds threshold
